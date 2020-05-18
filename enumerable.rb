@@ -44,4 +44,18 @@ module Enumerable
     end
     results
   end
+
+  def my_any?(args = nil)
+    result = false
+    my_each do |value|
+      if block_given?
+        result = true if yield(value)
+      elsif args.nil?
+        result = true if value
+      else
+        result = true if args === value
+      end
+    end
+    result
+  end
 end
