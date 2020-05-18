@@ -88,6 +88,14 @@ module Enumerable
   end
 
   def my_map(args = nil)
+    return to_enum(:my_map) unless block_given?
+
+    arr = []
+    my_each { |item| arr.push(args.nil? ? yield(item) : args.call(item)) }
+    arr
+  end
+
+  def my_inject
     
   end
 end
