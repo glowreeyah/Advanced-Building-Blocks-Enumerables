@@ -95,7 +95,26 @@ module Enumerable
     arr
   end
 
-  def my_inject
-    
+  def my_inject(arg1 = nil, arg2 = nil)
+    if block_given?
+      my_each do |item|
+        arg1 = arg1.nil? ? to_a[0] : yield(arg1, item)
+      end
+      arg1
+
+    elsif arg1
+      i = arg2.nil? ? 1 : 0
+      memo = arg2.nil? ? to_a[0] : arg1
+      operator = arg2.nil? ? arg1 : arg2
+
+      while i < size
+        memo = to_a[i].send(operator, memo)
+        i += 1
+      end
+      memo
+      
+    else
+      to_enum
+    end
   end
 end
