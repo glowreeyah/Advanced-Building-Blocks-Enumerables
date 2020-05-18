@@ -112,9 +112,14 @@ module Enumerable
         i += 1
       end
       memo
-      
+
     else
       to_enum
     end
   end
+end
+
+#to implement my_inject
+def multiply_els(arr)
+  arr.my_inject('*')
 end
