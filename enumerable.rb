@@ -1,3 +1,4 @@
+# rubocop: disable Metrics/ModuleLength, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
 module Enumerable
   def my_each
     return to_enum unless block_given?
@@ -29,6 +30,7 @@ module Enumerable
     result_arr
   end
 
+  # rubocop: disable Style/CaseEquality, Style/IfInsideElse
   def my_all?(args = nil)
     result = true
     my_each do |value|
@@ -71,6 +73,7 @@ module Enumerable
     result
   end
 
+  # rubocop: enable Style/CaseEquality, Style/IfInsideElse
   def my_count(args = nil)
     count = 0
     my_each do |item|
@@ -117,6 +120,7 @@ module Enumerable
   end
 end
 
+# rubocop: enable Metrics/ModuleLength, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexit
 #to implement my_inject
 def multiply_els(arr)
   arr.my_inject('*')
