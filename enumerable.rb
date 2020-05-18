@@ -32,17 +32,17 @@ module Enumerable
   end
 
   def my_all?(args = nil)
-    results = true
+    result = true
     my_each do |value|
       if block_given?
-        results = false unless yield(value)
+        result = false unless yield(value)
       elsif args.nil?
-        results = false unless value
+        result = false unless value
       else
-        results = false unless args === value
+        result = false unless args === value
       end
     end
-    results
+    result
   end
 
   def my_any?(args = nil)
