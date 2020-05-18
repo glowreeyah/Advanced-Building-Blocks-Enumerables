@@ -30,4 +30,18 @@ module Enumerable
     end
     result_arr
   end
+
+  def my_all?(args = nil)
+    results = true
+    my_each do |value|
+      if block_given?
+        results = false unless yield(value)
+      elsif args.nil?
+        results = false unless value
+      else
+        results = false unless args === value
+      end
+    end
+    results
+  end
 end
