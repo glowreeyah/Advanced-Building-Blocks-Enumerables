@@ -1,5 +1,3 @@
-# rubocop: disable Metrics/ModuleLength, Metrics/MethodLength, Style/CaseEquality, Style/IfInsideElse
-
 module Enumerable
   def my_each
     return to_enum unless block_given?
