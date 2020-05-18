@@ -8,6 +8,7 @@ module Enumerable
       yield(to_a[n])
       n += 1
     end
+    self
   end
 
   def my_each_with_index
@@ -18,6 +19,7 @@ module Enumerable
       yield(to_a[n], n)
       n += 1
     end
+    self
   end
 
   def my_select
